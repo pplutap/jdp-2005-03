@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/v1/ecommercee/cart")
 public class CartController {
     @RequestMapping(method = RequestMethod.GET, value = "getCart")
-    public void getCart(CartDto cartDto) {
-
+    public CartDto getCart() {
+        return new CartDto(1L, "first test", "description of the first test", 8, "1");
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteCart")

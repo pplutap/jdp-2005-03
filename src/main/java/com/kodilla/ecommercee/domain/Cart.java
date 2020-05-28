@@ -2,7 +2,6 @@ package com.kodilla.ecommercee.domain;
 
 import javax.persistence.*;
 
-@Entity(name = "cart")
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
