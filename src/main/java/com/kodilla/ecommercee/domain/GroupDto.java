@@ -1,9 +1,5 @@
 package com.kodilla.ecommercee.domain;
 
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class GroupDto {
     private Long id;
     private String name;
