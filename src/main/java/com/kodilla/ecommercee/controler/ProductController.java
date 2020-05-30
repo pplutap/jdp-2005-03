@@ -1,5 +1,4 @@
-package com.kodilla.ecommercee.controller;
-
+package com.kodilla.ecommercee.controler;
 
 import com.kodilla.ecommercee.domain.ProductDto;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,4 +38,3 @@ public class ProductController {
         System.out.println("Creating new product: " + productDto);
     }
 }
-
