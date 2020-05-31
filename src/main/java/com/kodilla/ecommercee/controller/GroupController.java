@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping ("v1/ecommercee")
+@RequestMapping ("v1/ecommercee/group")
 public class GroupController {
 
     @RequestMapping(method = RequestMethod.GET, value = "getGroups")
