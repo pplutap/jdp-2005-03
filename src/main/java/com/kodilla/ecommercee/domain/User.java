@@ -9,13 +9,13 @@ public class User {
 
     private Long id;
     private String userName;
-    private String status;
+    private Boolean status;
     private Long userKey;
 
     public User() {
     }
 
-    public User(Long id, String userName, String status, Long userKey) {
+    public User(Long id, String userName, Boolean status, Long userKey) {
         this.id = id;
         this.userName = userName;
         this.status = status;
@@ -36,7 +36,7 @@ public class User {
     }
 
     @Column(name = "STATUS")
-    public String getStatus() {
+    public Boolean getStatus() {
         return status;
     }
 
@@ -53,7 +53,7 @@ public class User {
         this.userName = userName;
     }
 
-    private void setStatus(String status) {
+    private void setStatus(Boolean status) {
         this.status = status;
     }
 
