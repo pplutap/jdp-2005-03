@@ -13,10 +13,6 @@ public class Order {
     public Order() {
     }
 
-    public Order(Long id) {
-        this.id = id;
-    }
-
     @Id
     @GeneratedValue
     @NotNull
@@ -37,7 +33,7 @@ public class Order {
         return cart;
     }
 
-    public void setId(Long id) {
+    private void setId(Long id) {
         this.id = id;
     }
 
