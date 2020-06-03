@@ -68,7 +68,7 @@ public class Cart {
         this.price = price;
     }
 
-    public void setGroupId(String groupId) {
-        this.productId = groupId;
+    public void setGroupId(String productId) {
+        this.productId = productId;
     }
 }
