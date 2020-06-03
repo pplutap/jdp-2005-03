@@ -37,7 +37,7 @@ public class Cart {
     }
 
     @Column(name = "PRODUCT_ID")
-    public String getGroupId() {
+    public String getProductId() {
         return productId;
     }
 
@@ -68,7 +68,7 @@ public class Cart {
         this.price = price;
     }
 
-    public void setGroupId(String productId) {
+    public void setProductId(String productId) {
         this.productId = productId;
     }
 }
