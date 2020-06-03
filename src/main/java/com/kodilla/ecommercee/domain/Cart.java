@@ -44,12 +44,12 @@ public class Cart {
     public Cart() {
     }
 
-    public Cart(int id, String name, String description, double price, String groupId) {
+    public Cart(int id, String name, String description, double price, String productId) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
-        this.productId = groupId;
+        this.productId = productId;
     }
 
     public void setId(int id) {
