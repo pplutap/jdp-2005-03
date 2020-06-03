@@ -4,7 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name="CART")
+@Table(name = "CART")
 public class Cart {
 
     private int id;
@@ -16,34 +16,35 @@ public class Cart {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name="ID", unique = true)
-    public int getId(){
+    @Column(name = "ID", unique = true)
+    public int getId() {
         return id;
     }
-    @Column(name="NAME")
-    public String getName()
-    {return name;}
 
-    @Column(name="DESCRIPTION")
-    public String getDescription(){
+    @Column(name = "NAME")
+    public String getName() {
+        return name;
+    }
+
+    @Column(name = "DESCRIPTION")
+    public String getDescription() {
         return description;
     }
 
     @Column(name = "PRICE")
-    public double getPrice(){
+    public double getPrice() {
         return price;
     }
 
     @Column(name = "GROUP_ID")
-    public String getGroupId(){
+    public String getGroupId() {
         return groupId;
     }
 
     public Cart() {
     }
 
-    public Cart(int id,String name, String description,double price,String groupId)
-    {
+    public Cart(int id, String name, String description, double price, String groupId) {
         this.id = id;
         this.name = name;
         this.description = description;
