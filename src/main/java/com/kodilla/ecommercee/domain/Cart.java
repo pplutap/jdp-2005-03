@@ -11,7 +11,7 @@ public class Cart {
     private String name;
     private String description;
     private double price;
-    private String groupId;
+    private String productId;
 
     @Id
     @GeneratedValue
@@ -36,9 +36,9 @@ public class Cart {
         return price;
     }
 
-    @Column(name = "GROUP_ID")
+    @Column(name = "PRODUCT_ID")
     public String getGroupId() {
-        return groupId;
+        return productId;
     }
 
     public Cart() {
@@ -49,7 +49,7 @@ public class Cart {
         this.name = name;
         this.description = description;
         this.price = price;
-        this.groupId = groupId;
+        this.productId = groupId;
     }
 
     public void setId(int id) {
@@ -69,6 +69,6 @@ public class Cart {
     }
 
     public void setGroupId(String groupId) {
-        this.groupId = groupId;
+        this.productId = groupId;
     }
 }
