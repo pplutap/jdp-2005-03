@@ -12,10 +12,11 @@ public class Product {
     private double price;
     private String groupId;
 
-    public Product(String name, String description, double price) {
+    public Product(String name, String description, double price, String groupId) {
         this.name = name;
         this.description = description;
         this.price = price;
+        this.groupId = groupId;
     }
 
     public Product() {
