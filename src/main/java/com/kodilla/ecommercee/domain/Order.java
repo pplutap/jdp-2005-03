@@ -10,12 +10,6 @@ public class Order {
     private String userId;
     private String cartId;
 
-    public Order() {
-    }
-
-    public Order(Long id, String userId, String cartId) {
-    }
-
     @Id
     @GeneratedValue
     @NotNull
@@ -32,6 +26,12 @@ public class Order {
     @JoinColumn(name = "CART_ID")
     public String getCartId() {
         return cartId;
+    }
+
+    public Order() {
+    }
+
+    public Order(Long id, String userId, String cartId) {
     }
 
     public void setId(Long id) {
