@@ -7,10 +7,13 @@ import javax.validation.constraints.NotNull;
 @Table(name = "ORDERS")
 public class Order {
     private Long id;
-    private User user;
-    private Cart cart;
+    private String userId;
+    private String cartId;
 
     public Order() {
+    }
+
+    public Order(Long id, String userId, String cartId) {
     }
 
     @Id
@@ -21,27 +24,25 @@ public class Order {
         return id;
     }
 
-    @ManyToOne
     @JoinColumn(name = "USER_ID")
-    public User getUser() {
-        return user;
+    public String getUserId() {
+        return userId;
     }
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "CART_ID")
-    public Cart getCart() {
-        return cart;
+    public String getCartId() {
+        return cartId;
     }
 
-    private void setId(Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public void setCart(Cart cart) {
-        this.cart = cart;
+    public void setCartId(String cartId) {
+        this.cartId = cartId;
     }
 }
