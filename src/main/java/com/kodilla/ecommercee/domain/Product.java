@@ -8,7 +8,7 @@ import javax.persistence.ManyToOne;
 @Entity
 @Table(name = "PRODUCT")
 public class Product {
-
+  
     private Long id;
     private String name;
     private String description;
@@ -56,7 +56,7 @@ public class Product {
     @Column(name = "GROUP_ID")
     public String getGroupId() {
         return groupId;
-     }
+    }
 
     public void setId(Long id) {
         this.id = id;
