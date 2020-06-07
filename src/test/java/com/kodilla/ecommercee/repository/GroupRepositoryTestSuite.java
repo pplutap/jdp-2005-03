@@ -21,57 +21,57 @@ public class GroupRepositoryTestSuite {
     @Autowired
     private GroupRepository groupRepository;
 
-    @Test
-    public void testGroupRepositorySave() {
-        //Given
-        Group group1 = new Group("Ubrania");
-        //When
-        groupRepository.save(group1);
-        //Then
-        Long id = group1.getId();
-        Optional<Group> productsGroups = groupRepository.findById(id);
-        Assert.assertTrue(productsGroups.isPresent());
-        //CleanUp
-        groupRepository.deleteById(id);
-    }
+     //@Test
+    // public void testGroupRepositorySave() {
+    // //Given
+       // Group group1 = new Group("Ubrania");
+       // //When
+       // groupRepository.save(group1);
+       // //Then
+       //Long id = group1.getId();
+       //Optional<Group> productsGroups = groupRepository.findById(id);
+       // Assert.assertTrue(productsGroups.isPresent());
+       // //CleanUp
+       // groupRepository.deleteById(id);
+    //}
 
-    @Test
-    public void testGroupRepositoryFindAll() {
+    //@Test
+    //public void testGroupRepositoryFindAll() {
 
-        //Given
-        Group group1 = new Group("Ubrania");
-        Group group2 = new Group("Dodatki");
-        Group group3 = new Group("Biżuteria");
-        Group group4 = new Group("Obuwie");
-        groupRepository.save(group1);
-        groupRepository.save(group2);
-        groupRepository.save(group3);
-        groupRepository.save(group4);
-        //When
-        List<Group> productsGroups = groupRepository.findAll();
-        //Then
-        Assert.assertEquals(4, productsGroups.size());
-        //CleanUp
-        //groupRepository.deleteAll();
-        groupRepository.delete(group1);
-        groupRepository.delete(group2);
-        groupRepository.delete(group3);
-        groupRepository.delete(group4);
-    }
+    //    //Given
+    //    Group group1 = new Group("Ubrania");
+    //    Group group2 = new Group("Dodatki");
+    //    Group group3 = new Group("Biżuteria");
+    //    Group group4 = new Group("Obuwie");
+    //    groupRepository.save(group1);
+    //   groupRepository.save(group2);
+    //    groupRepository.save(group3);
+    //    groupRepository.save(group4);
+    //    //When
+    //    List<Group> productsGroups = groupRepository.findAll();
+    //    //Then
+    //    Assert.assertEquals(4, productsGroups.size());
+    //    //CleanUp
+    //    //groupRepository.deleteAll();
+    //    groupRepository.delete(group1);
+    //    groupRepository.delete(group2);
+    //    groupRepository.delete(group3);
+    //    groupRepository.delete(group4);
+    //}
 
-    @Test
-    public void testGroupRepositoryFindById() {
-        //Given
-        Group group4 = new Group("Obuwie" );
-        groupRepository.save(group4);
-        Long id = group4.getId();
-        //When
-        Optional<Group> productsGroups = groupRepository.findById(id);
+   // @Test
+   // public void testGroupRepositoryFindById() {
+   //    //Given
+   //     Group group4 = new Group("Obuwie" );
+   //     groupRepository.save(group4);
+   //     Long id = group4.getId();
+   //     //When
+    //    Optional<Group> productsGroups = groupRepository.findById(id);
         //Then
-        Assert.assertEquals(id, productsGroups.get().getId());
-        //CleanUp
-        groupRepository.deleteById(id);
-    }
+    //    Assert.assertEquals(id, productsGroups.get().getId());
+    //    //CleanUp
+    //    groupRepository.deleteById(id);
+    // }
 
     @Test
     public void testGroupRepositorySaveWithProduct(){

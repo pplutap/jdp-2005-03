@@ -30,6 +30,6 @@ dependencies {
     runtimeOnly('com.h2database:h2')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
     compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.19'
-    compileOnly('org.projectlombok:lombok')
-    annotationProcessor('org.projectlombok:lombok')
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
 }
