@@ -79,7 +79,7 @@ public class GroupRepositoryTestSuite {
         Group group = new Group ("Ubrania");
         Product product = new Product("Kurtka zimowa", "Pellentesque tempus interdum quam ut rhoncus. Donec ullamcorper turpis dolor. Donec euismod pretium eros et eleifend. Aliquam vulputate faucibus", (100), "1");
         product.setGroup(group);
-        List<Product> productList = new ArrayList<>();
+        List<Product> productList = new ArrayList<Product>();
         productList.add(product);
         group.setProductList(productList);
         //When
