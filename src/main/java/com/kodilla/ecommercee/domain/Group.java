@@ -50,7 +50,7 @@ public class Group {
    @OneToMany(
            targetEntity = Product.class,
            mappedBy = "groupId",
-           cascade = CascadeType.ALL,
+           cascade = {CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST},
            fetch = FetchType.LAZY
     )
     public List<Product> getProductList() {

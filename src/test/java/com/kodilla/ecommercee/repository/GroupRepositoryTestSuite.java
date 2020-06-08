@@ -22,20 +22,6 @@ public class GroupRepositoryTestSuite {
     private GroupRepository groupRepository;
 
     @Test
-    public void testGroupRepositorySave() {
-        //Give
-        Group group1 = new Group("Ubrania");
-        //When
-        groupRepository.save(group1);
-        //Then
-        Long groupId = group1.getId();
-        Optional<Group> productsGroups = groupRepository.findById(groupId);
-        Assert.assertTrue(productsGroups.isPresent());
-        //CleanUp
-        groupRepository.deleteById(groupId);
-    }
-
-    @Test
     public void testGroupRepositoryFindAll() {
         //Given
         Group group1 = new Group("Ubrania");
@@ -49,13 +35,23 @@ public class GroupRepositoryTestSuite {
         //When
         List<Group> productsGroups = groupRepository.findAll();
         //Then
-        Assert.assertEquals(4, productsGroups.size());
+        Assert.assertEquals(6, productsGroups.size());
         //CleanUp
-
         groupRepository.delete(group1);
         groupRepository.delete(group2);
         groupRepository.delete(group3);
         groupRepository.delete(group4);
+    }
+    @Test
+    public void testGroupRepositorySave() {
+        //Give
+        Group group1 = new Group("Ubrania");
+        //When
+        groupRepository.save(group1);
+        //Then
+        Long groupId = group1.getId();
+        Optional<Group> productsGroups = groupRepository.findById(groupId);
+        Assert.assertTrue(productsGroups.isPresent());
     }
 
     @Test
@@ -68,8 +64,7 @@ public class GroupRepositoryTestSuite {
         Optional<Group> productsGroups = groupRepository.findById(groupId);
         //Then
         Assert.assertEquals(groupId, productsGroups.get().getId());
-        //CleanUp
-        groupRepository.deleteById(groupId);
+
      }
 
     @Test
@@ -91,6 +86,5 @@ public class GroupRepositoryTestSuite {
         Assert.assertEquals("Ubrania", group1.getName());
         //CleanUp
         groupRepository.deleteById(groupId);
-
     }
 }
