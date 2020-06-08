@@ -49,7 +49,7 @@ public class Group {
 
    @OneToMany(
            targetEntity = Product.class,
-           mappedBy = "group",
+           mappedBy = "groupId",
            cascade = CascadeType.ALL,
            fetch = FetchType.LAZY
     )

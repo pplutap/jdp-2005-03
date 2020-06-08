@@ -2,19 +2,16 @@ package com.kodilla.ecommercee.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 @Entity
 @Table(name = "PRODUCT")
 public class Product {
-  
+
     private Long id;
     private String name;
     private String description;
     private double price;
     private String groupId;
-    private Group group;
 
     public Product(String name, String description, double price, String groupId) {
         this.name = name;
@@ -78,13 +75,4 @@ public class Product {
         this.groupId = groupId;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "GROUP_ID", insertable = false, updatable = false)
-    public Group getGroup() {
-        return group;
-    }
-
-    public void setGroup(Group group) {
-        this.group = group;
-    }
 }
