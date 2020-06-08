@@ -75,20 +75,20 @@ public class GroupRepositoryTestSuite {
     @Test
     public void testGroupRepositorySaveWithProduct(){
         //Given
-        Group group = new Group ("Ubrania");
+        Group group1 = new Group ("Ubrania");
         Product product = new Product("Kurtka zimowa", "Pellentesque tempus interdum quam ut rhoncus. Donec ullamcorper turpis dolor. Donec euismod pretium eros et eleifend. Aliquam vulputate faucibus", (100), "1");
         List<Product> productList = new ArrayList<Product>();
         productList.add(product);
-        group.setProductList(productList);
+        group1.setProductList(productList);
         //When
-        groupRepository.save(group);
-        Long groupId = group.getId();
-        int productListSize = group.getProductList().size();
+        groupRepository.save(group1);
+        Long groupId = group1.getId();
+        int productListSize = group1.getProductList().size();
         Optional<Group> productsGroups= groupRepository.findById(groupId);
         //Then
         Assert.assertEquals(groupId, productsGroups.get().getId());
         Assert.assertEquals(1,productListSize);
-        Assert.assertEquals("Ubrania", group.getName());
+        Assert.assertEquals("Ubrania", group1.getName());
         //CleanUp
         groupRepository.deleteById(groupId);
 
