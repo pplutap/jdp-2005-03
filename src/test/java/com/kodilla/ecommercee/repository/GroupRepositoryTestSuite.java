@@ -51,7 +51,7 @@ public class GroupRepositoryTestSuite {
         //Then
         Assert.assertEquals(4, productsGroups.size());
         //CleanUp
-        groupRepository.deleteAll();
+
         groupRepository.delete(group1);
         groupRepository.delete(group2);
         groupRepository.delete(group3);
