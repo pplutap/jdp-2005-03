@@ -12,7 +12,7 @@ public class Group {
 
     private Long id;
     private String name;
-    private List<Product> productList = new ArrayList<>();
+    private List<Product> productList = new ArrayList<Product>();
 
     public Group(Long id, String name) {
         this.id = id;
@@ -50,7 +50,7 @@ public class Group {
    @OneToMany(
            targetEntity = Product.class,
            mappedBy = "groupId",
-           cascade = {CascadeType.ALL, CascadeType.MERGE, CascadeType.PERSIST},
+           cascade = {CascadeType.REFRESH, CascadeType.MERGE, CascadeType.PERSIST},
            fetch = FetchType.LAZY
     )
     public List<Product> getProductList() {
