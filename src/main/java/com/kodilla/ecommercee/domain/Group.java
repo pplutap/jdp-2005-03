@@ -2,8 +2,14 @@ package com.kodilla.ecommercee.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
 import java.util.List;
+
+@NamedNativeQuery(
+        name = "Product.getGroupId",
+        query = "SELECT * FROM PRODUCT",
+        resultClass = Group.class
+)
+
 
 @Entity
 @Table(name = "PRODUCTS_GROUPS")
@@ -12,7 +18,6 @@ public class Group {
 
     private Long id;
     private String name;
-    private List<Product> productList = new ArrayList<Product>();
 
     public Group(Long id, String name) {
         this.id = id;
@@ -47,17 +52,6 @@ public class Group {
         this.name = name;
     }
 
-   @OneToMany(
-           targetEntity = Product.class,
-           mappedBy = "groupId",
-           cascade = {CascadeType.REFRESH, CascadeType.MERGE, CascadeType.PERSIST},
-           fetch = FetchType.LAZY
-    )
-    public List<Product> getProductList() {
-        return productList;
-}
-
     public void setProductList(List<Product> productList) {
-        this.productList = productList;
     }
 }
