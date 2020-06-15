@@ -24,6 +24,7 @@ public class GroupRepositoryTestSuite {
     @Autowired
     private ProductRepository productRepository;
 
+
     @Test
     public void testGroupRepositorySave() {
         //Given

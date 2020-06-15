@@ -11,7 +11,7 @@ public class Cart {
     private String name;
     private String description;
     private double price;
-    private String productId;
+    private Long productId;
 
     @Id
     @GeneratedValue
@@ -37,14 +37,14 @@ public class Cart {
     }
 
     @Column(name = "PRODUCT_ID")
-    public String getProductId() {
+    public Long getProductId() {
         return productId;
     }
 
     public Cart() {
     }
 
-    public Cart(int id, String name, String description, double price, String productId) {
+    public Cart(int id, String name, String description, double price, Long productId) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -68,7 +68,9 @@ public class Cart {
         this.price = price;
     }
 
-    public void setProductId(String productId) {
+    public void setProductId(Long productId) {
         this.productId = productId;
     }
+
+
 }

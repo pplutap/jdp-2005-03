@@ -5,9 +5,9 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @NamedNativeQuery(
-        name = "Product.getGroupId",
+        name = "Product.getProductId",
         query = "SELECT * FROM PRODUCT",
-        resultClass = Group.class
+        resultClass = Product.class
 )
 
 
