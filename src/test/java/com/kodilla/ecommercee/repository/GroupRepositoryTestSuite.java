@@ -25,7 +25,7 @@ public class GroupRepositoryTestSuite {
     private ProductRepository productRepository;
 
     @Test
-    public void GroupRepositorySave() {
+    public void testGroupRepositorySave() {
         //Given
         Group group1 = new Group("Ubrania");
         //When
