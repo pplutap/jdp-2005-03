@@ -64,6 +64,7 @@ public class GroupRepositoryTestSuite {
         group1.setProductList(productList);
         //When
         groupRepository.save(group1);
+        productRepository.save(product);
         Long groupId = group1.getId();
         Optional<Group> productsGroups= groupRepository.findById(groupId);
         //Then
@@ -71,7 +72,7 @@ public class GroupRepositoryTestSuite {
         Assert.assertEquals("Ubrania", group1.getName());
         //CleanUp
         groupRepository.deleteById(groupId);
-
+        productRepository.delete(product);
     }
 }
 
