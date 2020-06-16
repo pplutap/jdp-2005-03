@@ -55,6 +55,25 @@ public class GroupRepositoryTestSuite {
     }
 
     @Test
+    public void testGroupRepositoryFindAll(){
+        //Given
+        Group group1 = new Group("Ubrania");
+        Group group2 = new Group("Dodatki");
+        Group group3 = new Group("Biżuteria");
+        Group group4 = new Group("Obuwie");
+        groupRepository.save(group1);
+        groupRepository.save(group2);
+        groupRepository.save(group3);
+        groupRepository.save(group4);
+        //When
+        List<Group> productsGroups = groupRepository.findAll();
+        //Then
+        Assert.assertEquals(4, productsGroups.size());
+        //CleanUp
+        groupRepository.deleteAll();
+    }
+
+    @Test
     public void testGroupRepositorySaveWithProduct(){
         //Given
         Group group1 = new Group ("Ubrania");

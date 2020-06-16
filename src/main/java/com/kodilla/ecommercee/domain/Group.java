@@ -10,10 +10,8 @@ import java.util.List;
         resultClass = Product.class
 )
 
-
 @Entity
 @Table(name = "PRODUCTS_GROUPS")
-
 public class Group {
 
     private Long id;
