@@ -6,7 +6,7 @@ import java.util.List;
 
 @NamedNativeQuery(
         name = "Product.getProductId",
-        query = "SELECT * FROM PRODUCT",
+        query = "SELECT * FROM PRODUCT WHERE GROUPID = 1",
         resultClass = Product.class
 )
 
