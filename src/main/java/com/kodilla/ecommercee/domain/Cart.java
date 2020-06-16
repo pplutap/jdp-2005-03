@@ -7,17 +7,16 @@ import javax.validation.constraints.NotNull;
 @Table(name = "CART")
 public class Cart {
 
-    private int id;
+    private Long id;
     private String name;
     private String description;
     private double price;
-    private CartProducts cartProducts;
 
     @Id
     @GeneratedValue
     @NotNull
     @Column(name = "ID", unique = true)
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -36,24 +35,17 @@ public class Cart {
         return price;
     }
 
-    @Embedded
-    @Column(name="CART_PRODUCTS_ID")
-    public CartProducts getCartProducts() {
-        return cartProducts;
-    }
-
     public Cart() {
     }
 
-    public Cart(int id, String name, String description, double price, CartProducts cartProducts) {
+    public Cart(Long id, String name, String description, double price) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
-        this.cartProducts=cartProducts;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -69,7 +61,4 @@ public class Cart {
         this.price = price;
     }
 
-    public void setCartProducts(CartProducts cartProducts) {
-        this.cartProducts = cartProducts;
-    }
 }

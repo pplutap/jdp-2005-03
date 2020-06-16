@@ -1,11 +1,22 @@
 package com.kodilla.ecommercee.domain;
 
-import javax.persistence.Embeddable;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Embeddable
+@Entity
+@Table(name="CART_PRODUCTS")
+
 public class CartProducts {
-    private List<Long> productsId;
+
+    @Id
+    @GeneratedValue()
+    private Long id;
+
+    private Long cartId;
+
+    private Long productId;
 
     public CartProducts() {
     }
