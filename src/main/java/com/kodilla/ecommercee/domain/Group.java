@@ -54,4 +54,5 @@ public class Group {
 
     public void setProductList(List<Product> productList) {
     }
+
 }
