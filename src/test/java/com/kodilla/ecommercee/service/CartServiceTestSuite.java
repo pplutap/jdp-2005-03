@@ -32,18 +32,20 @@ public class CartServiceTestSuite {
     @Test
     public void shouldGetCartAndProduct() {
         //Given
-        Cart cart = new Cart(1L, "testCart", "Cart created for test", 500.00);
+        Cart cart = new Cart("testCart", "Cart created for test", 500.00);
         cartRepository.save(cart);
-        CartProducts cartProducts01 = new CartProducts(1L, 1L, 1L);
-        CartProducts cartProducts02 = new CartProducts(2L, 1L, 2L);
-        cartAndProductRepository.save(cartProducts01);
-        cartAndProductRepository.save(cartProducts02);
-        Product product01 = new Product(1L, "testProduct01", "Product for test#01", 250.00, 1L);
-        Product product02 = new Product(2L, "testProduct02", "Product for test#02", 270.00, 4L);
+
+        Product product01 = new Product("testProduct01", "Product for test#01", 250.00, 1L);
+        Product product02 = new Product("testProduct02", "Product for test#02", 270.00, 4L);
         productRepository.save(product01);
         productRepository.save(product02);
+
+        CartProducts cartProducts01 = new CartProducts(cart.getId(), product01.getId());
+        CartProducts cartProducts02 = new CartProducts( cart.getId(), product02.getId());
+        cartAndProductRepository.save(cartProducts01);
+        cartAndProductRepository.save(cartProducts02);
         //When
-        CartAndProductDto cartAndProductDto = cartService.getCartAndProduct(1L);
+        CartAndProductDto cartAndProductDto = cartService.getCartAndProduct(cart.getId());
         //Then
 
     }
