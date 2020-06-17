@@ -6,7 +6,7 @@ import java.util.List;
 
 @NamedNativeQuery(
         name = "Product.getProductId",
-        query = "SELECT * FROM PRODUCT WHERE GROUPID = 1",
+        query = "SELECT * FROM PRODUCT WHERE GROUPID = ",
         resultClass = Product.class
 )
 
@@ -52,6 +52,7 @@ public class Group {
         this.name = name;
     }
 
-    public void setProductList(List<Product> productList) {
+    public List setProductList(List<Product> productList) {
+        return productList;
     }
 }
