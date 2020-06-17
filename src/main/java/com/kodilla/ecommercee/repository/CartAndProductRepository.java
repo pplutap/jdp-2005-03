@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface CartAndProductRepository extends CrudRepository<CartProducts, Long> {
 
-    @Query("FROM CartProducts WHERE cartId = cartId")
+    @Query("SELECT cartId FROM CartProducts WHERE cartId = cartId")
     public List<Long> getProductIds(Long cartId);
 }

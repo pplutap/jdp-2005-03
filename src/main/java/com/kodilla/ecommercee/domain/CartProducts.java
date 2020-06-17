@@ -21,4 +21,9 @@ public class CartProducts {
     public CartProducts() {
     }
 
+    public CartProducts(Long id, Long cartId, Long productId) {
+        this.id = id;
+        this.cartId = cartId;
+        this.productId = productId;
+    }
 }
