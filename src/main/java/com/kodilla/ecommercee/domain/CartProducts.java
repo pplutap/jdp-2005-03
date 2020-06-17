@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="CART_PRODUCTS")
+@Table(name = "CART_PRODUCTS")
 
 public class CartProducts {
 
@@ -19,6 +19,11 @@ public class CartProducts {
     private Long productId;
 
     public CartProducts() {
+    }
+
+    public CartProducts(Long cartId, Long productId) {
+        this.cartId = cartId;
+        this.productId = productId;
     }
 
     public CartProducts(Long id, Long cartId, Long productId) {

@@ -38,6 +38,12 @@ public class Cart {
     public Cart() {
     }
 
+    public Cart(String name, String description, double price) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
+
     public Cart(Long id, String name, String description, double price) {
         this.id = id;
         this.name = name;
