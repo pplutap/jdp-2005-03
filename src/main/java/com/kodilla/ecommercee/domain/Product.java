@@ -10,9 +10,17 @@ public class Product {
     private String name;
     private String description;
     private double price;
-    private String groupId;
+    private Long groupId;
 
-    public Product(String name, String description, double price, String groupId) {
+    public Product(String name, String description, double price, Long groupId) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.groupId = groupId;
+    }
+
+    public Product(Long id, String name, String description, double price, Long groupId) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
@@ -48,9 +56,8 @@ public class Product {
         return price;
     }
 
-    @NotNull
     @Column(name = "GROUP_ID")
-    public String getGroupId() {
+    public Long getGroupId() {
         return groupId;
     }
 
@@ -70,7 +77,7 @@ public class Product {
         this.price = price;
     }
 
-    public void setGroupId(String groupId) {
+    public void setGroupId(Long groupId) {
         this.groupId = groupId;
     }
 }
