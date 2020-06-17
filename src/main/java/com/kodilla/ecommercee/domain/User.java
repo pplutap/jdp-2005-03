@@ -15,8 +15,7 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String userName, Boolean status, Long userKey) {
-        this.id = id;
+    public User(String userName, Boolean status, Long userKey) {
         this.userName = userName;
         this.status = status;
         this.userKey = userKey;
