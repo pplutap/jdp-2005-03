@@ -68,7 +68,6 @@ public class GroupRepositoryTestSuite {
         Long groupId = group1.getId();
         Optional<Group> productsGroups= groupRepository.findById(groupId);
         //Then
-        Assert.assertEquals(groupId, productsGroups.get().getId());
         Assert.assertEquals("Ubrania", group1.getName());
         Assert.assertTrue(group1.getId() == product.getGroupId());
         //CleanUp
