@@ -42,11 +42,10 @@ public class OrderController {
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteOrder")
-    public void deleteOrder(@RequestParam Long orderId){
-        try {
+    public void deleteOrder(@RequestParam Long orderId) throws OrderNotFoundException{
+        if(orderService.getOrder(orderId).isPresent())
             orderService.deleteOrder(orderId);
-        } catch (Exception e) {
-            new OrderNotFoundException();
-        }
+        else
+            throw new OrderNotFoundException();
     }
 }
