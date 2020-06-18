@@ -2,6 +2,8 @@ package com.kodilla.ecommercee.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
+
 
 @Entity
 @Table(name = "PRODUCTS_GROUPS")
@@ -10,7 +12,6 @@ public class Group {
 
     private Long id;
     private String name;
-
 
     public Group(Long id, String name) {
         this.id = id;
@@ -43,5 +44,9 @@ public class Group {
 
     private void setName(String name) {
         this.name = name;
+    }
+
+    public List setProductList(List<Product> productList) {
+        return productList;
     }
 }
