@@ -11,7 +11,7 @@ public class CartController {
 
     @RequestMapping(method = RequestMethod.GET, value = "getCart")
     public CartDto getCart() {
-        return new CartDto(1L, "first test", "description of the first test", 8.0, "1");
+        return new CartDto(1L, "first test", "description of the first test", 8.0);
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteCart")
