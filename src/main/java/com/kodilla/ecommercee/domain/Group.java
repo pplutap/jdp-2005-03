@@ -4,12 +4,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
-@NamedNativeQuery(
-        name = "Product.getProductId",
-        query = "SELECT * FROM PRODUCT WHERE GROUPID = ",
-        resultClass = Product.class
-)
-
 
 @Entity
 @Table(name = "PRODUCTS_GROUPS")
