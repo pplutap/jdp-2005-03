@@ -34,6 +34,9 @@ public class Order {
     public Order(Long id, Long userId, Long cartId) {
     }
 
+    public Order(Long userId, Long cartId) {
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
