@@ -57,14 +57,15 @@ public class GroupRepositoryTestSuite {
     @Test
     public void testGroupRepositorySaveWithProduct(){
         //Given
-        Group group1 = new Group ("Ubrania");
-        Product product = new Product("Kurtka zimowa", "Pellentesque tempus interdum quam ut rhoncus. Donec ullamcorper turpis dolor. Donec euismod pretium eros et eleifend. Aliquam vulputate faucibus", (100), 1L);
+        Group group1 = new Group (1L,"Ubrania");
+        groupRepository.save(group1);
+        Product product = new Product("Kurtka zimowa", "Pellentesque tempus interdum quam ut rhoncus. Donec ullamcorper turpis dolor. Donec euismod pretium eros et eleifend. Aliquam vulputate faucibus", (100), group1.getId());
+        productRepository.save(product);
+        
         List<Product> productList = new ArrayList<Product>();
         productList.add(product);
         group1.setProductList(productList);
         //When
-        groupRepository.save(group1);
-        productRepository.save(product);
         Long groupId = group1.getId();
         Optional<Group> productsGroups= groupRepository.findById(groupId);
         //Then
