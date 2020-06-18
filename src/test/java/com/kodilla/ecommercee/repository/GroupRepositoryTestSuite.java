@@ -65,14 +65,14 @@ public class GroupRepositoryTestSuite {
         productList.add(product);
         group1.setProductList(productList);
         //When
-        Long groupId = group1.getId();
-        Optional<Group> productsGroups= groupRepository.findById(groupId);
+        List<Group> productsGroups = groupRepository.findAll();
         //Then
-        Assert.assertEquals(groupId, productsGroups.get().getId());
-        Assert.assertEquals("Ubrania", group1.getName());
+        Assert.assertEquals(1, productsGroups.size());
         Assert.assertTrue(group1.getId() == product.getGroupId());
+        Assert.assertEquals("Ubrania", group1.getName());
+
         //CleanUp
-        groupRepository.deleteById(groupId);
+        groupRepository.delete(group1);
         productRepository.delete(product);
     }
 }
