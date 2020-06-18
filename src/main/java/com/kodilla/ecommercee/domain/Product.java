@@ -1,13 +1,12 @@
 package com.kodilla.ecommercee.domain;
 
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-
 
 @Entity
 @Table(name = "PRODUCT")
 public class Product {
-
     private Long id;
     private String name;
     private String description;
@@ -15,6 +14,14 @@ public class Product {
     private Long groupId;
 
     public Product(String name, String description, double price, Long groupId) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.groupId = groupId;
+    }
+
+    public Product(Long id, String name, String description, double price, Long groupId) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
@@ -50,7 +57,6 @@ public class Product {
         return price;
     }
 
-    @NotNull
     @Column(name = "GROUP_ID")
     public Long getGroupId() {
         return groupId;
@@ -75,5 +81,4 @@ public class Product {
     public void setGroupId(Long groupId) {
         this.groupId = groupId;
     }
-
 }

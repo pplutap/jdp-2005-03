@@ -1,5 +1,6 @@
 package com.kodilla.ecommercee.domain;
 
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -7,17 +8,16 @@ import javax.validation.constraints.NotNull;
 @Table(name = "CART")
 public class Cart {
 
-    private int id;
+    private Long id;
     private String name;
     private String description;
     private double price;
-    private Long productId;
 
     @Id
     @GeneratedValue
     @NotNull
     @Column(name = "ID", unique = true)
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -36,23 +36,23 @@ public class Cart {
         return price;
     }
 
-    @Column(name = "PRODUCT_ID")
-    public Long getProductId() {
-        return productId;
-    }
-
     public Cart() {
     }
 
-    public Cart(int id, String name, String description, double price, Long productId) {
+    public Cart(String name, String description, double price) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
+
+    public Cart(Long id, String name, String description, double price) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
-        this.productId = productId;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -67,10 +67,4 @@ public class Cart {
     public void setPrice(double price) {
         this.price = price;
     }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
-
 }
