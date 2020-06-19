@@ -4,14 +4,10 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
-@NamedNativeQuery(
-        name = "Product.getProductId",
-        query = "SELECT * FROM PRODUCT WHERE GROUPID = 1",
-        resultClass = Product.class
-)
 
 @Entity
 @Table(name = "PRODUCTS_GROUPS")
+
 public class Group {
 
     private Long id;
@@ -50,7 +46,7 @@ public class Group {
         this.name = name;
     }
 
-    public void setProductList(List<Product> productList) {
+    public List setProductList(List<Product> productList) {
+        return productList;
     }
-
 }
