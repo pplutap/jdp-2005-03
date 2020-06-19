@@ -7,8 +7,8 @@ import javax.validation.constraints.NotNull;
 @Table(name = "ORDERS")
 public class Order {
     private Long id;
-    private String userId;
-    private String cartId;
+    private Long userId;
+    private Long cartId;
 
     @Id
     @GeneratedValue
@@ -19,30 +19,33 @@ public class Order {
     }
 
     @JoinColumn(name = "USER_ID")
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
     @JoinColumn(name = "CART_ID")
-    public String getCartId() {
+    public Long getCartId() {
         return cartId;
     }
 
     public Order() {
     }
 
-    public Order(Long id, String userId, String cartId) {
+    public Order(Long id, Long userId, Long cartId) {
+    }
+
+    public Order(Long userId, Long cartId) {
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
-    public void setCartId(String cartId) {
+    public void setCartId(Long cartId) {
         this.cartId = cartId;
     }
 }
