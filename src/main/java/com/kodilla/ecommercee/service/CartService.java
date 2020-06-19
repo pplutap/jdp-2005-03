@@ -43,4 +43,16 @@ public class CartService {
         return cartRepository.save(cart);
     }
 
+    public void saveAll(List<Cart> carts){
+        cartRepository.saveAll(carts);
+    }
+
+    public Cart findById(Long id){
+        return cartRepository.findById(id).orElseThrow(()->new IllegalArgumentException());
+    }
+
+    public void delete (Cart cart){
+        cartRepository.delete(cart);
+    }
+
 }
