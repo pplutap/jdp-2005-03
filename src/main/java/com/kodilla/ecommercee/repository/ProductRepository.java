@@ -12,3 +12,4 @@ public interface ProductRepository  extends CrudRepository<Product, Long>{
     //można zrobić listą i zwracać listę
 
 }
+

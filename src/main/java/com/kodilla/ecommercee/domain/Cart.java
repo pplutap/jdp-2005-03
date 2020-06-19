@@ -1,5 +1,6 @@
 package com.kodilla.ecommercee.domain;
 
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -66,5 +67,4 @@ public class Cart {
     public void setPrice(double price) {
         this.price = price;
     }
-
 }
