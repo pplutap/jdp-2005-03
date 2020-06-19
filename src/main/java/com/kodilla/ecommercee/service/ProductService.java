@@ -1,7 +1,8 @@
 package com.kodilla.ecommercee.service;
 
-import com.kodilla.ecommercee.domain.Order;
-import com.kodilla.ecommercee.repository.OrderRepository;
+import com.kodilla.ecommercee.domain.Product;
+import com.kodilla.ecommercee.exception.ProductNotFoundException;
+import com.kodilla.ecommercee.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,13 +11,22 @@ import java.util.List;
 @Service
 public class ProductService {
     @Autowired
-    private OrderRepository orderRepository;
+    private ProductRepository productRepository;
 
-    public List<Order> getAllOrders() {
-        return orderRepository.findAll();
+    public List<Product> getAllProducts() {
+        return (List<Product>) productRepository.findAll();
     }
 
-    public Order saveOrder(final Order order) {
-        return orderRepository.save(order);
+    public Product getProduct(final Long id) {
+        return productRepository.findById(id).orElseThrow(ProductNotFoundException::new);
     }
+
+    public Product saveProduct(final Product product) {
+        return productRepository.save(product);
+    }
+
+    public void deleteProduct(final Long id) {
+        productRepository.deleteById(id);
+    }
+
 }
