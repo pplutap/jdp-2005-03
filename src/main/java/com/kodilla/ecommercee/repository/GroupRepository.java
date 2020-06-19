@@ -12,6 +12,7 @@ import java.util.Optional;
 @Repository
 public interface GroupRepository  extends CrudRepository <Group, Long> {
 
+
     @Override
     List<Group> findAll();
 
@@ -24,4 +25,3 @@ public interface GroupRepository  extends CrudRepository <Group, Long> {
     @Override
     void deleteById (Long id);
 }
-

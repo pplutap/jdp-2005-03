@@ -1,13 +1,11 @@
 package com.kodilla.ecommercee.controller;
 
 import com.kodilla.ecommercee.domain.GroupDto;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import com.kodilla.ecommercee.mapper.GroupMapper;
+import com.kodilla.ecommercee.service.GroupDbService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
@@ -16,26 +14,37 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequestMapping ("v1/ecommercee/group")
 public class GroupController {
 
+    @Autowired
+    GroupDbService groupDbService;
+
+    @Autowired
+    GroupMapper groupMapper;
+
     @RequestMapping(method = RequestMethod.GET, value = "getGroups")
     public List<GroupDto> getGroups() {
-        return new ArrayList<>();
+        return groupMapper.mapToGroupDtoList(groupDbService.getAllGroups());
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "getGroup")
-    public GroupDto getGroup (Long groupId) {
-        return new GroupDto(1L, "test");
+    public GroupDto getGroup (@RequestParam Long groupId) throws GroupNotFoundException {
+        return groupMapper.mapToGroupDto(groupDbService.getGroup(groupId).orElseThrow(GroupNotFoundException::new));
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteGroup")
-    public void deleteGroup(Long groupId){
+    public void deleteGroup(@RequestParam Long groupId) throws GroupNotFoundException {
+        if(groupDbService.getGroup(groupId).isPresent())
+            groupDbService.deleteGroup(groupId);
+        else
+            throw new GroupNotFoundException();
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "createGroup", consumes = APPLICATION_JSON_VALUE)
-    public void createGroup(@RequestBody GroupDto groupDto){
+    public GroupDto createGroup(@RequestBody GroupDto groupDto) {
+        return groupMapper.mapToGroupDto(groupDbService.saveGroup(groupMapper.mapToGroup(groupDto)));
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "updateGroup")
-    public GroupDto updateGroup (GroupDto groupDto) {
-        return new GroupDto(1L,"edit test");
+    public GroupDto updateGroup (@RequestBody GroupDto groupDto) {
+        return groupMapper.mapToGroupDto(groupDbService.saveGroup(groupMapper.mapToGroup(groupDto)));
     }
 }
