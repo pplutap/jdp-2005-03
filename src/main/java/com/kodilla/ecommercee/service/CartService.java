@@ -28,6 +28,7 @@ public class CartService {
 
     public CartAndProductDto getCartAndProduct(Long id){
         Cart testCart = cartRepository.findById(id).orElseThrow(()-> new IllegalArgumentException());
+
         List<Long> productIds = cartAndProductRepository.getProductIds(testCart.getId());
         List<Product> products = new ArrayList<>();
         for(Long productId : productIds){

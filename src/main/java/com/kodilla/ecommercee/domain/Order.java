@@ -18,12 +18,14 @@ public class Order {
         return id;
     }
 
-    @JoinColumn(name = "USER_ID")
+    @NotNull
+    @Column(name = "USER_ID")
     public Long getUserId() {
         return userId;
     }
 
-    @JoinColumn(name = "CART_ID")
+    @NotNull
+    @Column(name = "CART_ID")
     public Long getCartId() {
         return cartId;
     }
