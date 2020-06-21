@@ -51,7 +51,6 @@ public class OrderTestSuite {
         Long userId = savedOrder1.getUserId();
         Long cartId = savedOrder1.getCartId();
 
-        Assert.assertEquals((Long)1L,orderId);
         Assert.assertEquals((Long)2L,userId);
         Assert.assertEquals((Long)2L,cartId);
 
