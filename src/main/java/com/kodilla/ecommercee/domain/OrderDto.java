@@ -12,7 +12,6 @@ public class OrderDto {
     }
 
     public OrderDto(Long userId, Long cartId) {
-        this.id = id;
         this.userId = userId;
         this.cartId = cartId;
     }

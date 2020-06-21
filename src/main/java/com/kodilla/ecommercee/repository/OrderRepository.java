@@ -14,11 +14,11 @@ import java.util.Optional;
 @Transactional
 public interface OrderRepository extends CrudRepository<Order, Long> {
 
-    @Query("SELECT userId FROM Order WHERE cartId = :cartId")
-    public Long getOrderIdByCartId(@Param("cartId") Long cartId);
+    @Query("SELECT id FROM Order WHERE cartId = :cartId")
+    Long getOrderIdByCartId(@Param("cartId") Long cartId);
 
-    @Query("SELECT cartId FROM Order WHERE userId = :userId")
-    public <List>Long getOrderIdByUserId(@Param("userId") Long userId);
+    @Query("SELECT id FROM Order WHERE userId = :userId")
+    <List>Long getOrderIdByUserId(@Param("userId") Long userId);
 
     @Override
     List<Order> findAll();
@@ -28,6 +28,9 @@ public interface OrderRepository extends CrudRepository<Order, Long> {
 
     @Override
     Order save(Order order);
+
+    @Override
+    void delete(Order order);
 
     @Override
     void deleteById(Long id);
