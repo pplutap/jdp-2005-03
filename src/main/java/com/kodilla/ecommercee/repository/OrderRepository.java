@@ -18,7 +18,7 @@ public interface OrderRepository extends CrudRepository<Order, Long> {
     Long getOrderIdByCartId(@Param("cartId") Long cartId);
 
     @Query("SELECT id FROM Order WHERE userId = :userId")
-    <List>Long getOrderIdByUserId(@Param("userId") Long userId);
+    List<Long> getOrderIdByUserId(@Param("userId") Long userId);
 
     @Override
     List<Order> findAll();

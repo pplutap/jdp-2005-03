@@ -1,9 +1,7 @@
 package com.kodilla.ecommercee.domain;
 
 import com.kodilla.ecommercee.service.OrderService;
-import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -130,5 +128,29 @@ public class OrderTestSuite {
         //CleanUp
         orderService.delete(order4);
         orderService.delete(order5);
+    }
+
+    @Test
+    public void shouldFindOrdersByUserId() {
+        //Given
+        Order order1 = new Order(1L,1L);
+        Order order2 = new Order(2L,2L);
+        Order order3 = new Order(1L,3L);
+
+        //When
+        Order savedOrder = orderService.saveOrder(order1);
+        orderService.saveOrder(order2);
+        orderService.saveOrder(order3);
+
+        //Then
+        List<Long> orders = orderService.getOrdersByUserId(1L);
+        int listSize = orders.size();
+
+        Assert.assertEquals(2, listSize);
+
+        //CleanUp
+        orderService.delete(order1);
+        orderService.delete(order2);
+        orderService.delete(order3);
     }
 }
