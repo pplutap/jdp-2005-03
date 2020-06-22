@@ -10,6 +10,7 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
+import java.util.Optional;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
@@ -121,7 +122,7 @@ public class OrderTestSuite {
         orderService.saveOrder(order5);
 
         //Then
-        Long orderId = orderService.getOrderIdByCartId(7L).get().getId();
+        Long orderId = orderService.getOrderIdByCartId(7L);
 
         Assert.assertEquals((Long)2L, orderId);
 

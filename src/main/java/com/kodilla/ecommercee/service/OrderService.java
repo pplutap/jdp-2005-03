@@ -38,13 +38,11 @@ public class OrderService {
         orderRepository.delete(order);
     }
 
-    public Optional<Order> getOrderIdByCartId(final Long cartId){
-        Long orderId = orderRepository.getOrderIdByCartId(cartId);
-        return orderRepository.findById(orderId);
+    public Long getOrderIdByCartId(final Long cartId){
+        return orderRepository.getOrderIdByCartId(cartId);
     }
 
     public List<Long> getOrdersByUserId(final Long id){
-        List<Long> orderList = orderRepository.getOrderIdByUserId(id);
-        return orderList;
+        return orderRepository.getOrderIdByUserId(id);
     }
 }
