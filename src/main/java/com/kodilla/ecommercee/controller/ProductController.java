@@ -1,41 +1,53 @@
 package com.kodilla.ecommercee.controller;
 
 import com.kodilla.ecommercee.domain.ProductDto;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import com.kodilla.ecommercee.exception.ProductNotFoundException;
+import com.kodilla.ecommercee.mapper.ProductMapper;
+import com.kodilla.ecommercee.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequestMapping("/v1/ecommercee/product")
 public class ProductController {
 
+    @Autowired
+    ProductService productService;
+
+    @Autowired
+    ProductMapper productMapper;
+
     @RequestMapping(method = RequestMethod.GET, value = "getProducts")
-    public List<ProductDto> getProducts(){
-        return new ArrayList<>();
+    public List<ProductDto> getProducts() {
+        return productMapper.mapProductsListToProductDtoList(productService.getAllProducts());
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "getProduct")
-    public ProductDto getProduct(Long productId){
-        return new ProductDto(1L,"kurtka zimowa", "Pellentesque tempus interdum quam ut rhoncus. Donec ullamcorper turpis dolor. Donec euismod pretium eros et eleifend. Aliquam vulputate faucibus lorem non auctor. Vivamus erat turpis, molestie a nisl non, scelerisque luctus enim. Nunc mi mi, laoreet ac mollis nec, pharetra sit amet tortor. Vivamus a bibendum purus.",
-                100.00, 1L);
+    public ProductDto getProduct(@RequestParam Long productId) {
+        return productMapper.mapToProductDto(productService.getProduct(productId));
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteProduct")
-    public void deleteProduct(Long productId){
-        System.out.println("Deleting product id:" + productId);
+    public void deleteProduct(@RequestParam Long productId) throws ProductNotFoundException {
+        try {
+            productService.deleteProduct(productId);
+        } catch (Exception e) {
+            throw new ProductNotFoundException();
+        }
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "updateProduct")
-    public ProductDto updateProduct(ProductDto productDto){
-        return new ProductDto(1L, "Zmodyfikowana kurtka zimowa", "Opis kurtki", 125.00, 1L);
+    public ProductDto updateProduct(@RequestBody ProductDto productDto) {
+        return productMapper.mapToProductDto(productService.saveProduct(productMapper.mapToProduct(productDto)));
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "createProduct")
-    public void createProduct(ProductDto productDto){
-        System.out.println("Creating new product: " + productDto);
+    @RequestMapping(method = RequestMethod.POST, value = "createProduct", consumes = APPLICATION_JSON_VALUE)
+    public void createProduct(ProductDto productDto) {
+        productService.saveProduct(productMapper.mapToProduct(productDto));
     }
 }
 

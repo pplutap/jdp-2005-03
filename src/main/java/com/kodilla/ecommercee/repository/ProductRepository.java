@@ -8,8 +8,7 @@ import javax.transaction.Transactional;
 
 @Repository
 @Transactional
-public interface ProductRepository  extends CrudRepository<Product, Long>{
-    //można zrobić listą i zwracać listę
+public interface ProductRepository extends CrudRepository<Product, Long> {
 
 }
 
