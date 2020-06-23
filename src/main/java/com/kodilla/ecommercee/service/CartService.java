@@ -31,28 +31,28 @@ public class CartService {
 
         List<Long> productIds = cartAndProductRepository.getProductIds(testCart.getId());
         List<Product> products = new ArrayList<>();
-        for(Long productId : productIds){
-            products.add(productRepository.findById(productId).orElseThrow(()->new IllegalArgumentException()));
+        for (Long productId : productIds) {
+            products.add(productRepository.findById(productId).orElseThrow(() -> new IllegalArgumentException()));
         }
         List<ProductDto> productDtos = products.stream()
                 .map(product -> new ProductDto(product.getId(), product.getName(), product.getDescription(), product.getPrice(), product.getGroupId()))
                 .collect(Collectors.toList());
-        return new CartAndProductDto(testCart.getId(),testCart.getName(),testCart.getDescription(),testCart.getPrice(),productDtos);
+        return new CartAndProductDto(testCart.getId(), testCart.getName(), testCart.getDescription(), testCart.getPrice(), productDtos);
     }
 
-    public Cart save (Cart cart){
+    public Cart save(Cart cart) {
         return cartRepository.save(cart);
     }
 
-    public void saveAll(List<Cart> carts){
+    public void saveAll(List<Cart> carts) {
         cartRepository.saveAll(carts);
     }
 
-    public Cart findById(Long id){
-        return cartRepository.findById(id).orElseThrow(()->new IllegalArgumentException());
+    public Cart findById(Long id) {
+        return cartRepository.findById(id).orElseThrow(() -> new IllegalArgumentException());
     }
 
-    public void delete (Cart cart){
+    public void delete(Cart cart) {
         cartRepository.delete(cart);
     }
 
