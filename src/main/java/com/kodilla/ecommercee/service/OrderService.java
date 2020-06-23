@@ -1,12 +1,17 @@
 package com.kodilla.ecommercee.service;
 
-import com.kodilla.ecommercee.domain.Order;
+import com.kodilla.ecommercee.domain.*;
+import com.kodilla.ecommercee.repository.CartRepository;
 import com.kodilla.ecommercee.repository.OrderRepository;
+import com.kodilla.ecommercee.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class OrderService {
@@ -27,5 +32,17 @@ public class OrderService {
 
     public void deleteOrder(Long id) {
         orderRepository.deleteById(id);
+    }
+
+    public void delete(Order order) {
+        orderRepository.delete(order);
+    }
+
+    public Long getOrderIdByCartId(final Long cartId){
+        return orderRepository.getOrderIdByCartId(cartId);
+    }
+
+    public List<Long> getOrdersByUserId(final Long id){
+        return orderRepository.getOrderIdByUserId(id);
     }
 }

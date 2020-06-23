@@ -18,23 +18,31 @@ public class Order {
         return id;
     }
 
-    @JoinColumn(name = "USER_ID")
+
+    @Column(name = "USER_ID")
     public Long getUserId() {
         return userId;
     }
 
-    @JoinColumn(name = "CART_ID")
+
+    @Column(name = "CART_ID")
     public Long getCartId() {
         return cartId;
     }
 
     public Order() {
+
     }
 
     public Order(Long id, Long userId, Long cartId) {
+        this.id = id;
+        this.userId = userId;
+        this.cartId = cartId;
     }
 
     public Order(Long userId, Long cartId) {
+        this.userId = userId;
+        this.cartId = cartId;
     }
 
     public void setId(Long id) {

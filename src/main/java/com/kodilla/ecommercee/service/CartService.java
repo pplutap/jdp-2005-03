@@ -26,8 +26,9 @@ public class CartService {
     @Autowired
     private CartAndProductRepository cartAndProductRepository;
 
-    public CartAndProductDto getCartAndProduct(Long id) {
-        Cart testCart = cartRepository.findById(id).orElseThrow(() -> new IllegalArgumentException());
+    public CartAndProductDto getCartAndProduct(Long id){
+        Cart testCart = cartRepository.findById(id).orElseThrow(()-> new IllegalArgumentException());
+
         List<Long> productIds = cartAndProductRepository.getProductIds(testCart.getId());
         List<Product> products = new ArrayList<>();
         for (Long productId : productIds) {

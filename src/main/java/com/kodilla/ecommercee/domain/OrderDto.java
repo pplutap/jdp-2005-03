@@ -11,6 +11,11 @@ public class OrderDto {
         this.cartId = cartId;
     }
 
+    public OrderDto(Long userId, Long cartId) {
+        this.userId = userId;
+        this.cartId = cartId;
+    }
+
     public Long getId() {
         return id;
     }
